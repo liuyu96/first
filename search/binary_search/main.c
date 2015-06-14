@@ -16,26 +16,26 @@ int main(int argc, char **argv)
 		printf("array[%d]: %d\n", i, array[i]);
 	}
 
-	for (j = -4; j < 22; j++) {
-		printf("search for %d\n", j);
+	for (j = -4; j < (ARRAY_SIZE * 2 + 5); j++) {
+		printf("------------------------------------search for %d\n", j);
 		mid = -1;
-		
+
 		//
-		__binary_search(0, (11), array, j, mid);
+		__binary_search(0, (ARRAY_SIZE - 1), array, j, mid);
 		if (mid >= 0)
 			printf("found:array[%d]: %d\n", mid, array[mid]);
 		else
 			printf("not found\n");
-		
+
 		//
 		mid = binary_search_recursive(array, j, 0, ARRAY_SIZE - 1);
 		if (mid >= 0)
 			printf("found:array[%d]: %d\n", mid, array[mid]);
 		else
 			printf("not found\n");
-		
+
 		//
-		mid = binary_search(array, j, 0, ARRAY_SIZE - 1);
+		mid = binary_search(array, j, ARRAY_SIZE);
 		if (mid >= 0)
 			printf("found:array[%d]: %d\n", mid, array[mid]);
 		else

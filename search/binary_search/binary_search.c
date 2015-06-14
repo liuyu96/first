@@ -1,5 +1,5 @@
 #include <stdio.h>
-//µİ¹éËã·¨
+
 int binary_search_recursive(int *a,int key,int low,int high)
 {
 	int mid;
@@ -14,8 +14,7 @@ int binary_search_recursive(int *a,int key,int low,int high)
 		return binary_search_recursive(a,key,mid + 1,high);
 }
 
-//·Çµİ¹éËã·¨
-int binary_search( int *a, int key, int n )
+int binary_search(int *a, int key, int n )
 {
 	int left = 0, right = n - 1, mid = 0;
 
