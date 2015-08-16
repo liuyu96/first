@@ -85,3 +85,11 @@ void Stock::show()
 	cout << "Company: " << company << " Shares: " << shares << endl
 		<< "Share price: " << share_val << " Total Worth: $" << total_val << endl;
 }
+
+const Stock & Stock::topval(const Stock & s)
+{
+	if (s.total_val > total_val)
+		return s;
+	else
+		*this; // 运用了this指针
+}

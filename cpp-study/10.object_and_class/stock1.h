@@ -17,6 +17,8 @@ public:
 	void sell(int num, double price);
 	void update(double price);
 	void show();
+	double total() const { return total_val; } // const 成员函数
+	const Stock & topval(const Stock & s);
 };
 
 #endif

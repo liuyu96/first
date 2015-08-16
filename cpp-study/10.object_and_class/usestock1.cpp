@@ -35,6 +35,18 @@ int main()
 	cout << endl;
 	cout << "Revised stock1: \n";
 	stock1.show();
+
+
+	cout << endl;
+	cout << "call topval\n";
+	Stock top;
+	top = stock1.topval(stock2);
+	top.show();
+
+	cout << endl;
+	top = stock2.topval(stock1);
+	top.show();
+
 	cout << "Done\n";
 
 	return 0;
