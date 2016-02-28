@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "merge_sort.h"
 
 #define MAX_LEN 512
 int left[MAX_LEN], right[MAX_LEN];
@@ -34,6 +33,27 @@ int merge(int *array, int start, int mid, int end)
 
 	i = 0;
 	j = 0;
+#if 1
+	for (k = start; k <= end; k++) {
+		if (left[i] < right[j]) {
+			array[k] = left[i];
+			i++;
+		} else {
+			array[k] = right[j];
+			j++;
+		}
+
+		if ((i >= left_len) || (j >= right_len))
+			break;
+	}
+	
+	if (i >= left_len)
+		for (; j < right_len; j++)
+			array[++k] = right[j];
+	else if (j >= right_len)
+		for (; i < left_len; i++)
+			array[++k] = left[i];
+#else
 	for (k = start; k <= end; k++) {
 		if ((i < left_len) && (j < right_len))
 			if (left[i] < right[j]) {
@@ -48,20 +68,25 @@ int merge(int *array, int start, int mid, int end)
 		else
 			array[k] = right[j++];
 	}
-
+#endif
 	return 0;
 }
 
 
-int merge_sort(int *array, int start, int end)
+int __merge_sort(int *array, int start, int end)
 {
 	int mid;
 	if (start < end) {
 		mid = (start + end) / 2;
-		merge_sort(array, start, mid);
-		merge_sort(array, mid + 1, end);
+		__merge_sort(array, start, mid);
+		__merge_sort(array, mid + 1, end);
 		merge(array, start, mid, end);
 	}
 	return 0;
 }
 
+
+int merge_sort(int *array, int len)
+{
+	return __merge_sort(array, 0, len - 1);
+}
