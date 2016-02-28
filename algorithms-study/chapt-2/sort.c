@@ -11,6 +11,7 @@ int raw[] = {5, 2, 4, 6, 1, 3, 8, 9, 12, 100, 67, 52, 32, 62, 70, 88, 888, 66};
 extern int merge_sort(int *, int);
 extern int choose_sort(int *, int);
 extern int bubble_sort(int *, int);
+extern int insertion_sort(int *array, int len);
 
 void print_int_array(char *name, int *array, int len)
 {
