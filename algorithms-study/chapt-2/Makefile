@@ -1,6 +1,6 @@
 #
 
-sort: sort.o insertion_sort.o merge_sort.o choose_sort.o
+sort: sort.o insertion_sort.o merge_sort.o choose_sort.o bubble-sort.o
 	gcc $^ -o $@ -g
 
 bisearch: binary-search.o

@@ -10,6 +10,7 @@ int raw[] = {5, 2, 4, 6, 1, 3, 8, 9, 12, 100, 67, 52, 32, 62, 70, 88, 888, 66};
 
 extern int merge_sort(int *, int);
 extern int choose_sort(int *, int);
+extern int bubble_sort(int *, int);
 
 void print_int_array(char *name, int *array, int len)
 {
@@ -51,11 +52,15 @@ int main(int argc, char **argv)
 	if (!ret)
 		print_int_array("after merge sort", a, len);
 
-
 	memcpy(a, raw, sizeof(raw));
 	ret = choose_sort(a, len);
 	if (!ret)
 		print_int_array("after choose sort", a, len);
-	
+
+	memcpy(a, raw, sizeof(raw));
+	ret = bubble_sort(a, len);
+	if (!ret)
+		print_int_array("after bubble sort", a, len);
+
 	return 0;
 }
