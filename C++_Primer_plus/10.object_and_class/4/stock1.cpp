@@ -91,5 +91,5 @@ const Stock & Stock::topval(const Stock & s)
 	if (s.total_val > total_val)
 		return s;
 	else
-		*this; // 运用了this指针
+		return *this; // 运用了this指针
 }
